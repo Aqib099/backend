@@ -15,7 +15,7 @@ let port = process.env.PORT || 8080;
 
 app.use('/user', userRoutes)
 app.use('/form', formRoutes)
-app.use('/signupUser', loginuser)
+app.use('/userSignin', loginuser)
 app.listen(port, (req, res) => {
     console.log(`Server is listening on Localhost ${port}`)
 });
