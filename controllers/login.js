@@ -25,7 +25,7 @@ const LoginUser =async(req,res) =>{
         const users =await user.findOne({email}) //const user has the whole object containing email and password
         if(users && await bcrypt.compare(password,users.password))
         {
-            const token = jwt.sign({userId: users.id, email:users.email},"3C0F2FAFD26C4FA5E8F362C92F96F86C",{expiresIn: "1hr"})
+            const token = jwt.sign({userId: users.id, email:users.email},process.env.PRIVATE_KEY ,{expiresIn: "1hr"})
             res.status(200).json({token})
         }
         else
