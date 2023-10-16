@@ -82,7 +82,7 @@ const userPasswordReset = async (req, res) => {
             token: crypto.randomBytes(32).toString("hex"),
         }).save();
     }
-        const link = `${process.env.BASE_URL}/password-reset/${user._id}/${token.token}`;
+        const link = `${process.env.BASE_URL}/passwordreset/${user._id}/${token.token}`;
         await sendEmail(user.email, "Password reset", link);
         res.send("password reset link sent to your email account");
 }catch(error){

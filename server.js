@@ -5,6 +5,8 @@ const userRoutes =require('./routes/user');
 const formRoutes =require('./routes/form');
 const loginuser = require('./routes/loginroutes');
 const app = express();
+const product = require('./routes/product')
+const quantity = require('./routes/quantity')
 const mongoose =require('./config/connection')
 dotenv.config();
 
@@ -16,6 +18,8 @@ let port = process.env.PORT || 8080;
 app.use('/user', userRoutes)
 app.use('/form', formRoutes)
 app.use('/userSignin', loginuser)
+app.use('/', product)
+app.use('/', quantity)
 app.listen(port, (req, res) => {
     console.log(`Server is listening on Localhost ${port}`)
 });
