@@ -7,9 +7,12 @@ const loginuser = require('./routes/loginroutes');
 const app = express();
 const product = require('./routes/product')
 const quantity = require('./routes/quantity')
+const cors = require('cors')
 const mongoose =require('./config/connection')
 dotenv.config();
 
+
+app.use(cors())
 app.use(bodypaser.json())
 app.use(express.static('Public'))
 
